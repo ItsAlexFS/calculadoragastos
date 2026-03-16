@@ -26,14 +26,14 @@ const addMovimientos = asyncHandler(async (req, res) => {
 })
 
 const deleteMovimientos = asyncHandler(async (req, res) => {
-    const movimiento = Gasto.findbyId(req.params.id)
+    const movimiento = await Gasto.findById(req.params.id)
 
     if (!movimiento){
         res.status(404)
         throw new Error ("Movimiento no encontrado")
     }
     else {
-        await Gasto.deleteOne(movimiento)
+        await Gasto.deleteOne({ _id: req.params.id })
         res.status(200).json({"mensaje":"Movimiento eliminado"})
     }
 })
