@@ -11,7 +11,7 @@ connectDB()
 const app = express()
 
 app.use(cors({
-    origin: "https://miapp.com"
+    origin: "//remarkable-sunburst-68987e.netlify.app"
 }))
 
 app.use(express.json())
